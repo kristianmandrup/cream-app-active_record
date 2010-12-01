@@ -1,0 +1,99 @@
+h1. Cream Rails 3 demo app - Active Record
+
+This is app serves to demonstrate how to configure a Rails 3 app for use with Cream and Active Record
+
+h2. Create Rails 3 app without Active Record
+<pre>
+  $ rails new cream_app --skip-activerecord  
+  $ cd cream_app
+</pre>
+
+h2. Install Cream
+
+Insert in Gemfile
+
+<pre>
+  gem 'cream'
+</pre>
+
+Install using bundler
+
+<pre>$ bundle install</pre>
+
+A set of gems related to Cream are installed...
+<pre>
+  Using cancan (1.4.1)
+  Using cancan-permits (0.3.6)
+  Using cancan-rest-links (0.2.0)
+  Using devise (1.1.5) 
+  Using devise-links (0.2.1)
+  Using cream (0.7.7)  
+</pre>
+
+<pre>
+  $ rails g
+</pre>
+
+Now we have a lot of interesting generators at our disposal related to Cream
+<pre>
+  Cancan:
+    cancan:config
+    cancan:license
+    cancan:licenses
+    cancan:permit
+    cancan:permits
+    cancan:restlinks
+
+  Cream:
+    cream:app
+    cream:full_config
+
+  Devise:
+    devise
+    devise:config
+    devise:install
+    devise:links
+    devise:users
+    devise:views  
+    
+  Permits:
+    permits:config
+
+  Roles:
+    roles:config    
+</pre>         
+
+h2. Check the run options for the main generator
+
+Check out the options available when running the cream:full_config generator
+
+<pre>
+  $ rails generate full_config -h
+</pre>
+
+The --orm and --strategy options are essential.
+
+h2. Do a Full Cream configuration of the app
+
+The following will set up the app using: 
+* a simple role_string role strategy (role attribute of type String on the User model)
+* mongoid as the ORM
+* create a devise Admin user that inherits from User 
+
+<pre>
+  $ rails g cream:full_config --orm active_record --strategy role_string --admin-user
+</pre>
+
+_Note:_ You can leave out the orm option as Active Record is the default orm.
+
+h2. Start the server
+
+Ready to rock!
+
+<pre>
+  $ rails server
+</pre>
+
+From here on, read the README of the individual subproject that Cream consists of, such as *devise*, *cancan*, *cancan-permits* and so on to enhance this application. 
+
+Note: Currently there is even no devise routes in this app!
