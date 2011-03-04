@@ -27,7 +27,7 @@ A set of gems related to Cream are installed...
   Using cancan-rest-links (0.2.0)
   Using devise (1.1.5) 
   Using devise-links (0.2.1)
-  Using cream (0.7.7)  
+  Using cream (0.7.8)  
 </pre>
 
 <pre>
@@ -68,7 +68,7 @@ h2. Check the run options for the main generator
 Check out the options available when running the cream:full_config generator
 
 <pre>
-  $ rails generate full_config -h
+  $ rails generate cream:full_config -h
 </pre>
 
 The --orm and --strategy options are essential.
@@ -85,6 +85,14 @@ The following will set up the app using:
 </pre>
 
 _Note:_ You can leave out the orm option as Active Record is the default orm.
+
+Run migrations
+
+<pre>
+  $ rake db:migrate
+</pre>
+
+Note you can also supply the -m option to the 'cream:full_config' generator in order to autorun migrations as the final step ;)
 
 h2. Start the server
 
